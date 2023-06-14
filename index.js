@@ -21,7 +21,9 @@ function tongSoDuong() {
   var length = arrNumbers.length;
   for (var i = 0; i < length; i++) {
     var number = arrNumbers[i];
-    sum += number;
+    if (number > 0) {
+      sum += number;
+    }
   }
   document.getElementById(
     "xuatKetQuaTongSoDuong"
@@ -38,7 +40,10 @@ function demSoDuong() {
   var dem = 0;
   var length = arrNumbers.length;
   for (var i = 0; i < length; i++) {
-    dem++;
+    var number = arrNumbers[i];
+    if (number > 0) {
+      dem++;
+    }
   }
   document.getElementById(
     "xuatKetQuaDemSoDuong"
@@ -67,20 +72,22 @@ function soNhoNhat() {
 document.getElementById("btnSoNhoNhat").onclick = soNhoNhat;
 // số dương nhỏ nhất
 // tương tự bài ở trên nhưng ta có thêm điều kiện là number phải lớn hơn 0
-function soDuongNhoNhat() {
-  var min = arrNumbers[0];
-  var length = arrNumbers.length;
+function timSoDuongNhoNhat() {
+  var min = arrNumbers[0] ;
+  length = arrNumbers.length;
   for (var i = 0; i < length; i++) {
-    var number = arrNumbers[i];
-    if (number < min && number > 0) {
-      min = number;
+    var number = arrNumbers[i]
+    if(number > 0 && number < min ) {
+      min = number
     }
   }
-  document.getElementById(
-    "xuatKetQuaSoDuongNhoNhat"
-  ).innerHTML = ` số dương nhỏ nhất ${min}`;
+  if ( min > 0 ) {
+    document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `Số dương nhỏ nhất của mảng là  ${min}` ;
+  } else {
+    var doiNoiDung = document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `mảng không có số dương nào`
+  };
 }
-document.getElementById("btnSoDuongNhoNhat").onclick = soDuongNhoNhat;
+document.getElementById("btnSoDuongNhoNhat").onclick = timSoDuongNhoNhat;
 // số chẵn cuối cùng trong mảng
 /**
  * input : lấy giá trị người dùng nhập vào; nếu không có số chẵn nào thì trả kết quả về -1
@@ -146,31 +153,33 @@ document.getElementById("btnSapXepTang").onclick = sapXepTangDan;
  * output: in ra ngoài màn hình
  */
 function checkSNT(uoc) {
-  if(uoc < 2  ) {
-    return false
-  }else  {
+  if (uoc < 2) {
+    return false;
+  } else {
     for (var i = 2; i <= Math.sqrt(uoc); i++) {
       if (uoc % i === 0) {
-        return false
+        return false;
       }
     }
   }
-  return true ;
+  return true;
 }
 function timSoNTDauTien() {
-  var length = arrNumbers.length ;
-  for(var i = 0; i < length; i++) {
-    var number = arrNumbers[i] ;
-    if(checkSNT(number)) {
-      return number
+  var length = arrNumbers.length;
+  for (var i = 0; i < length; i++) {
+    var number = arrNumbers[i];
+    if (checkSNT(number)) {
+      return number;
     }
   }
   return -1;
 }
-document.getElementById("btnTimSoNguyenTo").onclick = function() {
+document.getElementById("btnTimSoNguyenTo").onclick = function () {
   var soNTDauTien = timSoNTDauTien();
-  document.getElementById("xuatKetQuaSoNguyenTo").innerHTML = `số nguyên tố đầu tiên trong mảng là ${soNTDauTien}`
-}
+  document.getElementById(
+    "xuatKetQuaSoNguyenTo"
+  ).innerHTML = `số nguyên tố đầu tiên trong mảng là ${soNTDauTien}`;
+};
 // nhập thêm 1 mảng số thực; đếm có bao nhiêu số nguyên
 /**
  * input : tạo ra 1 mảng mới và nhập vào mảng
