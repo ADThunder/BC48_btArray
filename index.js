@@ -148,11 +148,11 @@ document.getElementById("btnSapXepTang").onclick = sapXepTangDan
  * output: in ra ngoài màn hình
  */
 function checkSNT(uoc) {
-  if(uoc <= 1  ) {
+  if(uoc < 2  ) {
     return false
   }else  {
     for (var i = 2; i < Math.sqrt(uoc); i++) {
-      if (uoc % 2 == 0) {
+      if (uoc % i === 0) {
         return false
       }
     }
@@ -163,7 +163,7 @@ function timSoNTDauTien() {
   var length = arrNumbers.length ;
   for(var i = 0; i < length; i++) {
     var number = arrNumbers[i] ;
-    if(checkSNT(number) == true ) {
+    if(checkSNT(number) && number % i === 0) {
       return number
     }
   }
