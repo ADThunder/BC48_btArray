@@ -84,7 +84,7 @@ function timSoDuongNhoNhat() {
   if ( min > 0 ) {
     document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `Số dương nhỏ nhất của mảng là  ${min}` ;
   } else {
-    var doiNoiDung = document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `mảng không có số dương nào`
+    var doiNoiDung = document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = "mảng không có số dương nào"
   };
 }
 document.getElementById("btnSoDuongNhoNhat").onclick = timSoDuongNhoNhat;
