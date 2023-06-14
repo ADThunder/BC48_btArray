@@ -148,7 +148,7 @@ document.getElementById("btnSapXepTang").onclick = sapXepTangDan
  * output: in ra ngoài màn hình
  */
 function checkSNT(uoc) {
-  if(uoc < 2 ) {
+  if(uoc <= 1  ) {
     return false
   }else  {
     for (var i = 2; i < Math.sqrt(uoc); i++) {
