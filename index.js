@@ -73,21 +73,30 @@ document.getElementById("btnSoNhoNhat").onclick = soNhoNhat;
 // số dương nhỏ nhất
 // tương tự bài ở trên nhưng ta có thêm điều kiện là number phải lớn hơn 0
 function timSoDuongNhoNhat() {
-  var min = arrNumbers[0] ;
-  length = arrNumbers.length;
-  for (var i = 0; i < length; i++) {
-    var number = arrNumbers[i]
-    if(number > 0 && number < min ) {
-      min = number
+  var length = arrNumbers.length ;
+  var arrMangMoi = []
+  for(var i = 0; i < length; i++) {
+    var number = arrNumbers[i] ;
+    if (number > 0 ) {
+      arrMangMoi.push(number)
     }
   }
-  if ( min > 0 ) {
-    document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `Số dương nhỏ nhất của mảng là  ${min}` ;
+  var min = arrMangMoi[0] ;
+  lengthMangMoi = arrMangMoi.length ;
+  for (var z = 0; z < lengthMangMoi; z++) {
+    var numberMangMoi = arrMangMoi[z] ;
+    if (numberMangMoi <= min ) {
+      min = numberMangMoi ;
+    }
+  }
+  if (min > 0) {
+    document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = `Số dương nhỏ nhất trong mảng là ${min}` ;
   } else {
-    var doiNoiDung = document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = "mảng không có số dương nào"
-  };
+    var doiNoiDung = document.getElementById("xuatKetQuaSoDuongNhoNhat").innerHTML = "Không có số dương nào trong mảng"
+  }
 }
-document.getElementById("btnSoDuongNhoNhat").onclick = timSoDuongNhoNhat;
+document.getElementById("btnSoDuongNhoNhat").onclick = timSoDuongNhoNhat ;
+
 // số chẵn cuối cùng trong mảng
 /**
  * input : lấy giá trị người dùng nhập vào; nếu không có số chẵn nào thì trả kết quả về -1
